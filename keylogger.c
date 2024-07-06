@@ -113,6 +113,9 @@ CGEventRef CGEventCallback(CGEventTapProxy proxy, CGEventType type, CGEventRef e
 // The following method converts the key code returned by each keypress as
 // a human readable key code in const char format.
 const char *convertKeyCode(int keyCode, bool shift, bool caps) {
+    // Preallocate memory for the string
+    static char unknownKey[12];
+
     switch ((int) keyCode) {
         case 0:   return shift || caps ? "A" : "a";
         case 1:   return shift || caps ? "S" : "s";
@@ -229,5 +232,7 @@ const char *convertKeyCode(int keyCode, bool shift, bool caps) {
         case 126: return "[up]";
         case 179: return "[fn]";
     }
-    return "[unknown]";
+    // Convert keyCode to string.
+    sprintf(unknownKey, "{%d}", keyCode);
+    return unknownKey;
 }
