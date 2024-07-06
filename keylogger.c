@@ -181,7 +181,7 @@ const char *convertKeyCode(int keyCode, bool shift, bool caps) {
         case 92:  return "9";
         case 36:  return "[return]";
         case 48:  return "[tab]";
-        case 49:  return " ";
+        case 49:  return "[space]";
         case 51:  return "[del]";
         case 53:  return "[esc]";
         case 54:  return "[right-cmd]";
