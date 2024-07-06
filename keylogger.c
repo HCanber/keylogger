@@ -227,6 +227,7 @@ const char *convertKeyCode(int keyCode, bool shift, bool caps) {
         case 124: return "[right]";
         case 125: return "[down]";
         case 126: return "[up]";
+        case 179: return "[fn]";
     }
     return "[unknown]";
 }
