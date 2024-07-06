@@ -6,13 +6,14 @@ PLIST=keylogger.plist
 INSTALLDIR=/usr/local/bin
 PLISTDIR=/Library/LaunchDaemons
 PLISTFULL=$(PLISTDIR)/$(PLIST)
+TMPDIR := build
 
 all: $(SOURCES)
-	$(CC) $(SOURCES) $(CFLAGS) -o $(EXECUTABLE)
+	$(CC) $(SOURCES) $(CFLAGS) -o build/$(EXECUTABLE)
 
 install: all
 	mkdir -p $(INSTALLDIR)
-	cp $(EXECUTABLE) $(INSTALLDIR)
+	cp build/$(EXECUTABLE) $(INSTALLDIR)
 
 uninstall:
 	launchctl unload $(PLISTFULL)
