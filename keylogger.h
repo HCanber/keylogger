@@ -12,6 +12,12 @@
 FILE *logfile = NULL;
 const char *logfileLocation = "/var/log/keystroke.log";
 
+#if KEYBOARD_SV
+const char *keyboard = "sv";
+#else
+const char *keyboard = "en";
+#endif
+
 CGEventRef CGEventCallback(CGEventTapProxy, CGEventType, CGEventRef, void*);
 const char *convertKeyCode(int, bool, bool);
 

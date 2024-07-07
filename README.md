@@ -93,6 +93,17 @@ Note! if you rerun `make keycounter_startup` the new service sometimes will not 
 make keycounter_uninstall
 ```
 
+## Swedish keyboard
+
+When calling `make` specify `FLAGS="-DKEYBOARD_SV"` to use the Swedish keyboard layout.
+This changes how the keycodes are mapped to keys, and specifies that `åäö` should be treated as characters that are affected by CAPS lock.
+
+Example:
+
+```sh
+make FLAGS="-DKEYBOARD_SV" keycounter_startup
+```
+
 ----
 
 # Original README

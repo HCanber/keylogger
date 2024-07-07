@@ -325,7 +325,7 @@ int main(int argc, const char *argv[]) {
             exit(0);
         }
     }
-    logToNoNewLine(stdout, "Starting keycounter with arguments:");
+    logToNoNewLine(stdout, "Starting keycounter for layout=%s with arguments:", keyboard);
     for (int i = 0; i < argc; i++) {
         fprintf(stdout, " \"%s\"", argv[i]);
     }

