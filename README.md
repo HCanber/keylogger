@@ -1,3 +1,39 @@
+
+# macOS key logger and counter
+
+This is a fork of [caseyscarborough/keylogger](https://github.com/caseyscarborough/keylogger) with the following changes:
+
+- keylogger: See below for changes
+- Build to `./build` and use it as tempdir for gcc. This folder can then be set up as an exception in your antivirus software, as it otherwise (hopefully) would be identified and blocked as a keylogger.
+
+## keylogger
+
+Logs key presses to a file. Read below under _Original README_ for more information.
+The following changes have been made compared to the original fork:
+
+- Log space as `[space]` instead of ``.
+- Log `[fn]` key presses.
+- Log unknown keys as `{keycode}` with the actual keycode instead of `[unknown]`.
+## Prerequisites
+
+Clone this repository and build:
+
+```sh
+git clone https://github.com/hcanber/keylogger && cd keylogger
+make
+```
+
+## Build and run from command line
+
+
+----
+
+# Original README
+
+The original README from [caseyscarborough/keylogger](https://github.com/caseyscarborough/keylogger)
+I've just modified the instructions for the build and installation process as I've updated the build process
+----
+
 # macOS Keylogger
 
 This repository holds the code for a simple and easy to use keylogger for macOS. It is not meant to be malicious, and is written as a proof of concept. There is not a lot of information on keyloggers or implementing them on macOS, and most of the ones I've seen do not work as indicated. This project aims to be a simple implementation on how it can be accomplished on OS X.
@@ -6,11 +42,11 @@ This repository holds the code for a simple and easy to use keylogger for macOS.
 
 ## Usage
 
-Start by cloning the repository and running the proper make commands, shown below. By default, the application installs to `/usr/local/bin/keylogger`, which can easily be changed in the [`Makefile`](https://github.com/caseyscarborough/keylogger/blob/master/Makefile). `make install` may require root access.
+Start by cloning the repository and running the proper make commands, shown below. By default, the application installs to `/usr/local/bin/keylogger`, which can easily be changed in the [`Makefile`](https://github.com/caseyscarborough/keylogger/blob/master/Makefile). `make install_keylogger` may require root access.
 
 ```bash
-$ git clone https://github.com/caseyscarborough/keylogger && cd keylogger
-$ make && make install
+git clone https://github.com/hcanber/keylogger && cd keylogger
+make && make keylogger_install
 ```
 
 The application by default logs to `/var/log/keystroke.log`, which may require root access depending on your system's permissions. You can change this in [`keylogger.h`](https://github.com/caseyscarborough/keylogger/blob/master/keylogger.h#L12) if necessary.
@@ -25,19 +61,19 @@ If only modifier keys are logging (e.g. in macOS ≥ 10.10), run with root acces
 If you'd like the application to run in the background on startup, run the `startup` make target:
 
 ```bash
-$ sudo make startup
+sudo make keylogger_startup
 ```
 
 To run the application now (note: you will need to run the `sudo make startup` command first):
 
 ```bash
-$ sudo make load
+sudo make keylogger_load
 ```
 
 To quit the application now (note: you will need to run the `sudo make startup` command first)::
 
 ```bash
-$ sudo make unload
+sudo make keylogger_unload
 ```
 
 ## Uninstallation
@@ -45,7 +81,7 @@ $ sudo make unload
 You can completely remove the application from your system (including the startup daemon) by running the following command (logs will not be deleted):
 
 ```bash
-$ sudo make uninstall
+sudo make keylogger_uninstall
 ```
 
 ### Optional Parameters
