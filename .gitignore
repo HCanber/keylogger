@@ -1,4 +1,5 @@
-build/
+build/*
 keystroke.log
 keylogger
 .DS_Store
+!build/.gitkeep

