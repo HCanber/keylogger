@@ -118,7 +118,7 @@ void saveKeyCountsJson(FILE *logfile) {
     fprintf(logfile, "\n}\n");
 }
 void saveKeyCountsCsv(FILE *logfile) {
-    fprintf(logfile, "\"KeyCode\",\"Shift\",\"Control\",\"ShiftControl\",\"Option\",\"ShiftOption\",\"ControlOption\",\"ShiftControlOption\",\"Command\",\"ShiftCommand\",\"ControlCommand\",\"ShiftControlCommand\",\"OptionCommand\",\"ShiftOptionCommand\",\"ControlOptionCommand\",\"ShiftControlOptionCommand\"\n");
+    fprintf(logfile, "\"KeyCode\",\"NoModifier\",\"Shift\",\"Control\",\"ShiftControl\",\"Option\",\"ShiftOption\",\"ControlOption\",\"ShiftControlOption\",\"Command\",\"ShiftCommand\",\"ControlCommand\",\"ShiftControlCommand\",\"OptionCommand\",\"ShiftOptionCommand\",\"ControlOptionCommand\",\"ShiftControlOptionCommand\"\n");
     for (int i = 0; i < MAX_KEY_CODE; i++) {
         // Skip keys that have not been pressed
         int total = 0;
