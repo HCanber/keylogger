@@ -104,6 +104,11 @@ Example:
 make FLAGS="-DKEYBOARD_SV" keycounter_startup
 ```
 
+## List of keycodes
+
+See <https://stackoverflow.com/questions/3202629/where-can-i-find-a-list-of-mac-virtual-key-codes>
+and <https://eastmanreference.com/complete-list-of-applescript-key-codes>
+
 ----
 
 # Original README
